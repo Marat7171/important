@@ -1,6 +1,6 @@
 <?php
 $driver = 'mysql';
-$host = 'important';
+$host = 'localhost';
 $dbname = 'auction';
 $db_user = 'mysql';
 $db_pass = 'mysql';

@@ -30,13 +30,19 @@
 			<h1>Добавить лот</h1>
 			<div>
 				<input type="text" placeholder="Название" name="lotname" id="lotname" />
+				<?php echo $_SESSION['lot']['name'];
+					  unset($_SESSION['lot']['name']); ?>
 			</div>
 			<div>
 				<input type="text" placeholder="Начальная цена" name="price" id="price" />
+				<?php echo $_SESSION['lot']['price'];
+					  unset($_SESSION['lot']['price']); ?>
 			</div>
 			<div>
-				<textarea name="text" placeholder="Описание"
+				<textarea type="text" placeholder="Описание"
 				name="description" id="description"></textarea>
+				<?php echo $_SESSION['lot']['description'];
+					  unset($_SESSION['lot']['description']); ?>
 			</div>
 			<div>
 				<br>
