@@ -32,19 +32,22 @@ echo '<br>';
 			<h1>Редактирование лота:</h1>
 			<div>
 				<input type="text" placeholder="Название" name="lotname" id="lotname" />
-				<?php echo $_SESSION['lotl']['name'];
-					  unset($_SESSION['lotl']['name']); ?>
+				<?php if(isset($_SESSION['lotl']['name'])) { 
+						echo $_SESSION['lotl']['name'];
+					  	unset($_SESSION['lotl']['name']); } ?>
 			</div>
 			<div>
 				<input type="text" placeholder="Начальная цена" name="price" id="price" />
-				<?php echo $_SESSION['lotl']['price'];
-					  unset($_SESSION['lotl']['price']); ?>
+				<?php  if(isset($_SESSION['lotl']['price'])) {
+						echo $_SESSION['lotl']['price'];
+					  	unset($_SESSION['lotl']['price']); } ?>
 			</div>
 			<div>
 				<textarea type="text" placeholder="Описание"
 				name="description" id="description"></textarea>
-				<?php echo $_SESSION['lotl']['description'];
-					  unset($_SESSION['lotl']['description']); ?>
+				<?php 	if(isset($_SESSION['lotl']['description'])) {
+						echo $_SESSION['lotl']['description'];
+					  	unset($_SESSION['lotl']['description']); } ?>
 			</div>
 			<div>
 				<br>

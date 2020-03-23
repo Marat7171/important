@@ -59,112 +59,91 @@
   <!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter39705265 = new Ya.Metrika({ id:39705265, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/39705265" style="position:absolute; left:-9999px;" alt="Yandex.Metrika" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
   <header>
-  <!-- <div class="collapse bg-dark" id="navbarHeader">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Like on Facebook</a></li>
-            <li><a href="#" class="text-white">Email me</a></li>
-          </ul>
-        </div>
+
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" focusable="false" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <strong><a href="launchDb.php">Название сайта</a></strong>
+        </a>
+        <?php if(isset($_SESSION['users']['username'])): ?>
+          <a href="myAuctions.php"><strong style="color: #FFF;">Мои аукционы</strong></a>
+          <a href="completedAuction.php"><strong style="color: #FFF;">Завершённые аукционы</strong></a>
+          <a href="lotAdding.php"><strong style="color: #FFF;">Добавить лот</strong></a>
+          <a href="phpCode/exit.php"><strong style="color: #FFF;">Выйти из профиля</strong></a>
+        <?php endif; ?> 
       </div>
     </div>
-  </div> -->
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container d-flex justify-content-between">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2" focusable="false" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-        <strong><a href="#">Название сайта</a></strong>
-      </a>
-      <?php if(isset($_SESSION['users']['username'])): ?>
-        <a href="myAuctions.php"><strong style="color: #FFF;">Мои аукционы</strong></a>
-        <a href="completedAuction.php"><strong style="color: #FFF;">Завершённые аукционы</strong></a>
-        <a href="lotAdding.php"><strong style="color: #FFF;">Добавить лот</strong></a>
-        <a href="phpCode/exit.php"><strong style="color: #FFF;">Выйти из профиля</strong></a>
+  </header>
+
+  <main role="main">
+
+    <section class="jumbotron text-center">
+      <div class="container"><?php if(!isset($_SESSION['users']['username'])): ?>
+      <h1 class="jumbotron-heading">Пожaлуйсте, авторизируйтесь!</h1>
+      <p class="lead text-muted">Если вы ищете выгодные предложения, есть большая вероятность, что вы найдете их на нашем онлайн-аукционе. Будь то украшения, одежда, книги или даже машина, дом или участок земли - все они доступны по выгодным ценам у нас.</p>
+      <p>
+        <a href="authorization.php" class="btn btn-primary my-2">Авторизироваться!</a>
+        <a href="registration.php" class="btn btn-secondary my-2">Я здесь впервые</a>
+      </p>
+      <?php else: ?>
+        <h1 class="jumbotron-heading"><?php echo "Добро пожаловать, " . $_SESSION['users']['username']; ?></h1>
       <?php endif; ?> 
     </div>
-  </div>
-</header>
+  </section>
 
-<main role="main">
+  <div class="album py-5 bg-light">
+    <div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container"><?php if(!isset($_SESSION['users']['username'])): ?>
-    <h1 class="jumbotron-heading">Пожaлуйсте, авторизируйтесь!</h1>
-    <p class="lead text-muted">Если вы ищете выгодные предложения, есть большая вероятность, что вы найдете их на нашем онлайн-аукционе. Будь то украшения, одежда, книги или даже машина, дом или участок земли - все они доступны по выгодным ценам у нас.</p>
-    <p>
-      <a href="authorization.php" class="btn btn-primary my-2">Авторизироваться!</a>
-      <a href="registration.php" class="btn btn-secondary my-2">Я здесь впервые</a>
-    </p>
-    <?php else: ?>
-      <h1 class="jumbotron-heading"><?php echo "Добро пожаловать, " . $_SESSION['users']['username']; ?></h1>
-    <?php endif; ?> 
-  </div>
-</section>
+      <div class="row">
+        <?php require_once 'phpCode/connectdb.php';
+        $time = time();
+        $query = $pdo->query("SELECT * FROM `lot` WHERE `timeLeft` > {$time} ORDER BY `id` DESC");
+        while($row = $query->fetch(PDO::FETCH_OBJ)): ?>
 
-<div class="album py-5 bg-light">
-  <div class="container">
+          <?php $queryf = $pdo->query("SELECT * FROM `photo` WHERE `id_lot` = {$row->id} ");
+          $wrow = $queryf->fetch(PDO::FETCH_OBJ);
 
-    <div class="row">
-      <?php require_once 'phpCode/connectdb.php';
-      $time = time();
-      $query = $pdo->query("SELECT * FROM `lot` WHERE `timeLeft` > {$time} ORDER BY `id` DESC");
-      while($row = $query->fetch(PDO::FETCH_OBJ)): ?>
+          $queryp = $pdo->query("SELECT * FROM `pricetable` WHERE `price_id` = {$row->id}  ORDER BY `id` DESC");
+          $prow = $queryp->fetch(PDO::FETCH_OBJ);?>        
+          
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+             <img src="<?php echo DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR.$wrow->tmp;?>" width="auto" height="330">
+             <div class="card-body">
+              <p class="card-text"><?php echo $row->lotname . "</br>" . $row->description . "</br>" . "Начальная цена: " . $row->price . " рублей." . "</br>" . "Текущая ставка: " . $prow->price . " рублей." . "<br>" . "Лот активен до: " . date("Y-m-d H:i:s", $row->timeLeft) ?></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
 
-        <?php $queryf = $pdo->query("SELECT * FROM `photo` WHERE `id_lot` = {$row->id} ");
-        $wrow = $queryf->fetch(PDO::FETCH_OBJ);
+                  <?php if ((isset($_SESSION['lot']['useremail'])) && (!($_SESSION['lot']['useremail'] == $row->useremail))): ?>   
+                  <form action="phpCode/rate.php" method="post">
+                    <input type="text" name="price" id="price">
+                    <?php if($row->id == "{$_SESSION['lot']['priceid']}") { echo $_SESSION['lot']['price'];
+                    unset($_SESSION['lot']['price']); } ?>
+                    <button type="submit" name="editing" value="<?php echo $row->id; ?>" class="btn btn-sm btn-outline-secondary">Сделать ставку</button>
+                  </form>
+                <?php endif; ?>
 
-        $queryp = $pdo->query("SELECT * FROM `pricetable` WHERE `price_id` = {$row->id}  ORDER BY `id` DESC");
-        $prow = $queryp->fetch(PDO::FETCH_OBJ);?>        
-        <!--  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect fill="#55595c" width="100%" height="100%"/><text fill="#eceeef" dy=".3em" x="50%" y="50%">Thumbnail</text></svg> -->
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-           <img src="<?php echo DIRECTORY_SEPARATOR.'photo'.DIRECTORY_SEPARATOR.$wrow->tmp;?>" width="auto" height="330">
-           <div class="card-body">
-            <p class="card-text"><?php echo $row->lotname . "</br>" . $row->description . "</br>" . "Начальная цена: " . $row->price . " рублей." . "</br>" . "Текущая ставка: " . $prow->price . " рублей." . "<br>" . "Лот активен до: " . date("Y-m-d H:i:s", $row->timeLeft) ?></p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
+                <?php if ((isset($_SESSION['lot']['useremail'])) && ($_SESSION['lot']['useremail'] == $row->useremail)): ?>
 
-                <?php if ((isset($_SESSION['lot']['useremail'])) && (!($_SESSION['lot']['useremail'] == $row->useremail))): ?>   
-                <form action="phpCode/rate.php" method="post">
-                  <input type="text" name="price" id="price">
-                  <?php if($row->id == "{$_SESSION['lot']['priceid']}") { echo $_SESSION['lot']['price'];
-                  unset($_SESSION['lot']['price']); } ?>
-                  <button type="submit" name="editing" value="<?php echo $row->id; ?>" class="btn btn-sm btn-outline-secondary">Сделать ставку</button>
+                <form action="phpCode/earlyCompletion.php" method="post">
+                  <button type="submit" name="editing" value="<?php echo $row->id; ?>" class="btn btn-sm btn-outline-secondary">Досрочно завершить аукцион</button>
                 </form>
-              <?php endif; ?>
-
-              <?php if ((isset($_SESSION['lot']['useremail'])) && ($_SESSION['lot']['useremail'] == $row->useremail)): ?>
-
-              <form action="phpCode/earlyCompletion.php" method="post">
-                <button type="submit" name="editing" value="<?php echo $row->id; ?>" class="btn btn-sm btn-outline-secondary">Досрочно завершить аукцион</button>
-              </form>
 
 
 
               <?php endif; ?>
 
-             <!--    <form action="/phpCode/lotediting.php" method="post">
-                  <button type="button" name="editing" value="<?php echo $row->email; ?>" class="btn btn-sm btn-outline-secondary">Редактировать</button>
-                  <button type="button" name="delete" value="2" class="btn btn-sm btn-outline-secondary">Удалить</button>
-                </form> -->
-              </div>
-              <small class="text-muted">9 mins</small>
             </div>
+            <small class="text-muted">9 mins</small>
           </div>
         </div>
       </div>
+    </div>
 
 
-    <?php endwhile; ?>
-  </div>
+  <?php endwhile; ?>
+</div>
 </div>
 </div>
 

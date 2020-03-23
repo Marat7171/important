@@ -31,31 +31,33 @@
 			<div>
 				<input type="text" placeholder="Username" name="username" id="username" />
 			</div>
-			<?php echo $_SESSION['users']['name'];
-				  unset($_SESSION['users']['name']); 	
-			 ?>
+			<?php if(isset($_SESSION['users']['name'])) {
+				  echo $_SESSION['users']['name'];
+				  unset($_SESSION['users']['name']); } ?>
 			<div>
 				<input type="text" placeholder="Email" name="email" id="email" />
 			</div>
-			<?php echo $_SESSION['users']['email'];
-				  unset($_SESSION['users']['email']); 	
+			<?php if(isset($_SESSION['users']['email'])) {
+				  echo $_SESSION['users']['email'];
+				  unset($_SESSION['users']['email']); }	
 			 ?>
 			<div>
 				<input type="password" placeholder="Password" name="password" id="password" />
 			</div>
-			<?php echo $_SESSION['users']['password'];
-				  unset($_SESSION['users']['password']); 	
+			<?php if(isset($_SESSION['users']['password'])) {
+				  echo $_SESSION['users']['password'];
+				  unset($_SESSION['users']['password']); }
 			 ?>
 			<div>
 				<input type="password" placeholder="Confirm password" name="confirmPassword" id="confirmPassword" />
 			</div>
-			<?php echo $_SESSION['users']['confirmPassword'];
-				  unset($_SESSION['users']['confirmPassword']); 	
+			<?php if(isset($_SESSION['users']['confirmPassword'])) {
+				  echo $_SESSION['users']['confirmPassword'];
+				  unset($_SESSION['users']['confirmPassword']); }	
 			 ?>
 			<div>
 				<input type="submit" value="Log in" />
-				<a href="#">Lost your password?</a>
-				<a href="#">Register</a>
+				<a href="/authorization.php">log in</a>
 			</div>
 		</form><!-- form -->
 		

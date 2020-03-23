@@ -1,10 +1,8 @@
 <?php
 
-
 $editing = $_POST['editing'];
 
 $timeLeft = 0;
-
 
 require_once 'connectdb.php';
 

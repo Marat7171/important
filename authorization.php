@@ -31,17 +31,19 @@
 			<div>
 				<input type="text" placeholder="Email" name="email" id="email" />
 			</div>
-			<?php echo $_SESSION['users']['emaila'];
-				  unset($_SESSION['users']['emaila']);	?>
+			<?php if (isset($_SESSION['users']['emaila'])) {
+					 echo $_SESSION['users']['emaila'];
+				 	 unset($_SESSION['users']['emaila']); } ?>
+			
 			<div>
 				<input type="password" placeholder="Password" name="password" required="" id="password" />
 			</div>
-			<?php echo $_SESSION['users']['passworda'];
-				  unset($_SESSION['users']['passworda']);	?>
+			<?php if (isset($_SESSION['users']['passworda'])) {
+					 echo $_SESSION['users']['passworda'];
+				 	 unset($_SESSION['users']['passworda']); }	?>
 			<div>
 				<input type="submit" value="Log in" />
-				<a href="#">Lost your password?</a>
-				<a href="#">Register</a>
+				<a href="/registration.php">Register</a>
 			</div>
 		</form><!-- form -->
 		

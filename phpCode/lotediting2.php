@@ -6,7 +6,7 @@ $lotname = $_POST['lotname'];
 $photo = $_FILES['docs'];
 $price = $_POST['price'];
 $description = $_POST['description'];
- // var_dump($photo);
+
 require_once 'connectdb.php';
 $time = time();
  $timecompletion = 1728000; // 20 дней
@@ -67,61 +67,5 @@ $time = time();
 
  }
 
-
-
-// $update_columns = array();
-//     if(trim($book_title) !== "")   { $update_columns[] = "title = :title"; }
-//     if(trim($book_author) !== "")  { $update_columns[] = "author = :author"; }
-//     if(trim($book_price) !== "")   { $update_columns[] = "price = :price"; }
-//     if(trim($book_discount) !== ""){ $update_columns[] = "discount = :discount"; }
-//     if(trim($book_amount) !== "")  { $update_columns[] = "amount = :amount"; }
-    
-//     // Если есть хоть одно заполненное поле формы,
-//     // то составляем запрос.    
-//     if(sizeof($update_columns > 0)){
-//         // Запрос на создание записи в таблице
-//         $sql = "UPDATE books SET " . implode(", ", $update_columns) . " WHERE id=:id";
-//         // Перед тем как выполнять запрос предлагаю убедится, что он составлен без ошибок.
-//         // echo $sql;
-//         // Например, если в форме заполнены поля: название, автор книги и номер Id=1,
-//         // то запрос должен выглядеть следующим образом:
-//         // "UPDATE books SET title = :title, author = :author WHERE id=:id"
-        
-//         // Подготовка запроса.
-//         $statement = $db->prepare($sql);
- 
-//         // Привязываем к псевдо переменным реальные данные,
-//         // если они существуют (пользователь заполнил поле в форме).        
-//         $statement->bindParam(":id", $book_id);
-//         if(trim($book_title) !== ""){
-//             $statement->bindParam(":title", $book_title);
-//         }
-//         if(trim($book_author) !== ""){
-//             $statement->bindParam(":author", $book_author);
-//         }
-//         if(trim($book_price) !== ""){
-//             $statement->bindParam(":price", $book_price);
-//         }
-//         if(trim($book_discount) !== ""){
-//             $statement->bindParam(":discount", $book_discount);
-//         }
-//         if(trim($book_amount) !== ""){
-//             $statement->bindParam(":amount", $book_amount);
-//         }
-        
-//         // Выполняем запрос.
-//         $statement->execute();
-    
-//         echo "Запись c ID: " . $book_id . " успешно обновлена!";
-//     }
-// }
- 
-// catch(PDOException $e) {
-//     echo "Ошибка при обновлении записи в базе данных: " . $e->getMessage();
-// }
- 
-// // Закрываем соединение.
-// $db = null;
-
-header('Location: /myAuctions.php');
+ header('Location: /myAuctions.php');
  ?>
